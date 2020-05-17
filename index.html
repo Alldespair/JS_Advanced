@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home-1</title>
+  <style>
+    input {display: block; width: 250px;}
+    input:hover {color: red}
+    ul {font-size: 24px; color: black; min-height: 250px;}
+  </style>
+</head>
+<body>
+  <ul id="myList">
+    <li>List Item 1</li>
+    <li>List Item 2</li>
+    <li>List Item 3</li>
+    <li>List Item 4</li>
+    <li>List Item 5</li>
+  </ul>
+  <form>
+    <input type="button" value="Выбрать первый элемент" onclick="selectFirst()">
+    <input type="button" value="Выбрать последний элемент" onclick="selectLast()">
+    <input type="button" value="Выбрать следующий элемент" onclick="selectNext()">
+    <input type="button" value="Выбрать предыдущий элемент" onclick="selectPrev()">
+    <input type="button" value="Добавить элемент" onclick="append()">
+    <input type="button" value="Удалить элемент" onclick="remove()">
+    <input type="button" value="Добавить в начало" onclick="appendInStart()">
+  </form>
+  <script src="js/script.js"></script>
+</body>
+</html>
