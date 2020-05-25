@@ -1,0 +1,53 @@
+<!-- 
+    Запросите у пользователя ввести какую-то фразу. 
+    Отобразите каждое отдельное слово в виде списка ul li. 
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой. 
+    Найдите все буквы "а" их количество в модальное окно. 
+ -->
+ 
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <input id="text" type="text" >
+    <input id="okBtn" onclick="myFoo ()" type="button" value="OK">
+    <ul id="list"></ul>
+    <script>
+        function myFoo() {
+        var textInput = document.getElementById("text").value;
+        
+        var letterArray = textInput.split("");
+        let countA = 0;
+
+        var wordArray = textInput.split(" ");
+
+        letterArray.forEach(element => {
+            if(element == "a" || element == "A" || element == "а" || element == "А") {
+                countA++
+            }
+        });
+
+        wordArray[0] = wordArray[0].toUpperCase();
+
+        if(wordArray.length == 2) {
+            wordArray[1] = wordArray[1].toLowerCase();
+        } else if(wordArray.length > 2) {
+            wordArray[wordArray.length-2] = wordArray[wordArray.length-2].toLowerCase();
+            wordArray[wordArray.length-1] = wordArray[wordArray.length-1].toLowerCase();
+        }
+
+        wordArray.forEach(element => {
+            var newItem = document.createElement("li");
+            newItem.innerHTML = element;
+            document.getElementById("list").appendChild(newItem);
+        });
+
+        alert("Количество 'а' в тексте равно " + countA);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <style>
+        #timer {
+            width: 200px;
+        }
+
+        #ziferblat {
+            background-color: black;
+            width: inherit;
+            margin-bottom: 10px;
+            color: lightblue;
+            text-align: center;
+            font-size: 72px;
+        }
+
+        input {
+            width: inherit;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<!-- Создайте счетчик секунд, который начинает отчет с 1 и заканчивается на 30,
+также добавьте кнопки которые останавливают отчет, и запускают его заново и добавьте кнопку
+обнуляющую отcчет. Также попробуйте изменить код так чтобы отчет начинался с 30 и заканчивался на 1. -->
+
+<div id="timer">
+    <div id="ziferblat"></div>
+    <input type="button" onclick="startCount ()" value="Start" id="startBtn">
+    <input type="button" onclick="stopCount ()" value="Stop" id="stopBtn">
+    <input type="button" onclick="clearCount ()" value="Clear" id="clearBtn">
+</div>
+
+<script>
+    var myTimer;
+    var count = document.getElementById("ziferblat");
+    count.innerHTML = 0;
+
+    function startCount() {
+        myTimer = setInterval(function() {
+            count.innerHTML++;
+            if(count.innerHTML == 30) {
+            stopCount ();
+            };
+        }, 1000);
+    }
+
+    function stopCount() {
+        clearInterval(myTimer);
+        document.getElementById("startBtn").value = "Continue";
+    }
+
+    function clearCount() {
+        stopCount();
+        count.innerHTML = 0;
+        document.getElementById("startBtn").value = "Start";
+    }
+</script>
+</body>
+</html>
