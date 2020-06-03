@@ -1,0 +1,43 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+  <a href="#" id="link">Ссылка</a>
+  <div id="elem" style="visibility: hidden;">Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+    При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+    Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+  </div>
+  <input type="button" id="btn" value="удалить обработчик событий">
+
+  <script>
+    var link = document.getElementById("link");
+    var elem = document.getElementById("elem");
+    var remove = document.getElementById("btn");
+
+    link.addEventListener("click", showelement);
+    remove.addEventListener("click", removeHandler);
+
+    function showelement() {
+      var show = elem.style.visibility;
+      if(show=="hidden"){
+        elem.style.visibility="visible";
+      }else{
+        elem.style.visibility="hidden";
+      }
+    }
+
+    function removeHandler() {
+      link.removeEventListener("click", showelement)
+    };
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик. -->
+
+        <div id="container">
+        <div style="color: red;">Text <input type="button" value="delete"></div>
+        <div style="color: gold;">Text <input type="button" value="delete"></div>
+        <div style="color: purple;">Text <input type="button" value="delete"></div>
+        <div style="color: blue;">Text <input type="button" value="delete"></div>
+        <div style="color: green;">Text <input type="button" value="delete"></div>  
+    </div>
+
+    <script>
+        var divList = document.getElementById("container");
+        divList.addEventListener("click", function(e) {
+            var itemDel = e.target.parentNode;
+            divList.removeChild(itemDel);
+        });
+    </script>
+</body>
+</html>
