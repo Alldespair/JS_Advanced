@@ -1,0 +1,97 @@
+<!-- Реализуйте последние 2 слайда в презентации с помощью пройденого на уроке материала -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+    <script>
+        // function Man(walk, eat, drink) {
+        //     this.walk = walk;
+        //     this.eat = eat;
+        //     this.drink = drink;
+        // };
+        
+        // function Soldier(walk, eat, drink) {
+        //     this.walk = walk;
+        //     this.eat = eat;
+        //     this.drink = drink;
+        //     this.shoot = function () {
+        //         document.write("Солдат стреляет" + "<br />");
+        //     }
+        // };
+
+        // function Doctor(walk, eat, drink) {
+        //     this.walk = walk;
+        //     this.eat = eat;
+        //     this.drink = drink;
+        //     this.cure = function () {
+        //         document.write("Доктор лечит" + "<br />");
+        //     }
+        // };
+
+        // Soldier.prototype = new Man();
+        // Doctor.prototype = new Man();
+
+        // var Soldier = new Soldier("marsh", "meat", "beer");
+        // var Doctor = new Doctor("slow", "vagetables", "wine");
+
+        // Soldier.shoot();
+        // Doctor.cure();
+
+        // console.log(Soldier);
+        // console.log(Doctor);
+
+        // -------------------------------------------------------------------------------------------------
+
+        function Metadoctor() {
+            this.cure = function() {
+            }
+        };
+
+        function Doctor(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.cure = function () {
+                document.write("doctor");
+            }
+        };
+
+        function Dantist(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.cure = function () {
+                document.write("dantist");
+            }
+        };
+        
+        function Surgeon(walk, eat, drink) {
+            this.walk = walk;
+            this.eat = eat;
+            this.drink = drink;
+            this.cure = function () {
+                document.write("surgeon");
+            }
+        };
+
+        Doctor.prototype = new Metadoctor();
+        Dantist.prototype = new Doctor();
+        Surgeon.prototype = new Doctor();
+        
+        var doctor = new Doctor();
+        var dantist = new Dantist();
+        var surgeon = new Surgeon();
+
+        doctor.cure();
+        dantist.cure();
+        surgeon.cure();
+
+        console.log(doctor);
+        console.log(dantist);
+        console.log(surgeon);
+    </script>
+</body>
+</html>
