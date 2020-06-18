@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork</title>
+    <style>
+        body {height: 2000px;}
+        #upToTop {font-size: 24px; padding: 5px; text-align: center; border: solid 2px pink; border-radius: 15px; position: fixed; bottom: 0; right: 0;}
+        #dragElem {height: 50px; width: 50px; background-color: royalblue; position: absolute; left: 300px; z-index: 9998}
+        #moveElem {height: 200px; width: 200px; background-color: peru; border-radius: 50%;}
+        #stopMove {position: fixed; z-index: 9999;}
+    </style>
+</head>
+<body>
+    <!-- 1. back to top button; -->
+    <div id="upToTop"> ↑ Up to top ↑ </div>
+
+    <!-- 2. drag; -->
+    <div id="dragElem"></div>
+    
+	<!-- 3. создайте div, при клике на него, div начинает двигаться вправо, при клике на кнопку - останавливается,
+    при попадании div к краю окна, он переходит к началу окна. -->
+    <input type="button" id="stopMove" value="STOP" onclick="stopMove()">
+    <div id="moveElem"></div>
+    
+    <script>
+        var upToTop = document.getElementById("upToTop");
+        upToTop.addEventListener("click", goUp);
+        function goUp() {
+            window.scrollTo(0, 0);
+        }
+
+        // --------------------------------------
+        
+        var dragElem = document.getElementById("dragElem");
+        dragElem.addEventListener('mousedown', function() {
+            startDrag();
+        });
+
+        function startDrag() {
+            document.onmouseup = finishDrag;
+            document.onmousemove = function(e) {
+                dragElem.style.top = (dragElem.offsetTop + e.movementY) + "px";
+                dragElem.style.left = (dragElem.offsetLeft + e.movementX) + "px";
+            }
+        }
+
+        function finishDrag() {
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
+
+        // --------------------------------------
+        
+        var moveElem = document.getElementById("moveElem");
+        moveElem.addEventListener("click", runElem);
+        var count = 0;
+        var myInterval;
+
+        function runElem() {
+            myInterval = setInterval(function(){myCoord()}, 1);
+        }
+
+        function myCoord() {
+            if(count<window.screen.width) {
+                moveElem.style.position = "fixed"
+                moveElem.style.left = count + "px";
+                count++;
+            } else {count=-200;}
+        }
+
+        function stopMove() {
+            clearInterval(myInterval);
+        }
+    </script>
+</body>
+</html>
