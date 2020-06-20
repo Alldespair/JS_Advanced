@@ -17,9 +17,9 @@ var filmsListArray = [];
 var planet = document.getElementById('planet');
 var species = document.getElementById('species');
 
-var backBtn = document.getElementById("backBtn");
-var prevBtn = document.getElementById("prevBtn");
-var nextBtn = document.getElementById("nextBtn");
+var backBtn = document.getElementById('backBtn');
+var prevBtn = document.getElementById('prevBtn');
+var nextBtn = document.getElementById('nextBtn');
 
 var url = 'https://swapi.dev/api/people/';
 var urlFilmList;
@@ -29,10 +29,10 @@ var init = {
   method: 'GET'
 };
 
-startLogo.addEventListener("click", getPage);
-backBtn.addEventListener("click", backToList);
-prevBtn.addEventListener("click", getPrevList);
-nextBtn.addEventListener("click", getNextList);
+startLogo.addEventListener('click', getPage);
+backBtn.addEventListener('click', backToList);
+prevBtn.addEventListener('click', getPrevList);
+nextBtn.addEventListener('click', getNextList);
 
 function getPage() {
   setInterval(animation, 3);
@@ -138,11 +138,11 @@ function getHeroInfo() {
 getHeroes();
 
 function buttonCheck() {
-  prevList ? prevBtn.style.visibility = "visible" : prevBtn.style.visibility = "hidden";
-  nextList ? nextBtn.style.visibility = "visible" : nextBtn.style.visibility = "hidden";
+  prevList ? prevBtn.style.visibility = 'visible' : prevBtn.style.visibility = 'hidden';
+  nextList ? nextBtn.style.visibility = 'visible' : nextBtn.style.visibility = 'hidden';
 };
 
-heroListHTML.addEventListener("click", function(e) {
+heroListHTML.addEventListener('click', function(e) {
   var heroItem = e.target.innerHTML;
 
   for (var i=0; i<heroList.length; i++) {
